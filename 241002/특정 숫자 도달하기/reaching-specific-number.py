@@ -1,24 +1,17 @@
-numbers = list(map(int, input().split()))
+# 배열을 구현하여 주어진 수를 입력받습니다.
+arr = list(map(int, input().split()))
+sum_val = 0
+cnt = 0
 
+# 10개의 정수 중 250 이상의 수가 나올 때 까지의 수의 합계와 개수를 구합니다.
+for elem in arr:
+	if elem >= 250:
+		break
+	sum_val += elem
+	cnt += 1
 
-count = 0
-limit_index = 10 
-
-for i in range(10):
-    if numbers[i] >= 250:
-        limit_index = i
-        break
-
-
-sum_numbers = sum(numbers[:limit_index])
-count = limit_index
-
-
-if count == 0:
-    sum_numbers = sum(numbers)
-    count = 10
-
-
-average = sum_numbers / count
-
-print(sum_numbers, average)
+# 평균을 구합니다.
+avg = sum_val / cnt
+ 
+# 출력
+print(f"{sum_val} {avg:.1f}")
