@@ -6,7 +6,7 @@ class Student:
         self.math = math
         self.total_score = korean + english + math 
 
-n = int(input("학생 수를 입력하세요: "))
+n = int(input())
 
 students = []
 for _ in range(n):
