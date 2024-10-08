@@ -1,15 +1,20 @@
-days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+m1, d1, m2, d2 = tuple(map(int, input().split()))
 
-m1, d1, m2, d2 = map(int, input().split())
+def num_of_days(m, d):
 
-if m1 == m2:
-    total_days = d2 - d1
-else:
-    total_days = days_in_month[m1 - 1] - d1
-    for month in range(m1 + 1, m2):
-        total_days += days_in_month[month - 1]
-    total_days += d2
+    days = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    total_days = 0
 
-result_day = weekdays[(total_days % 7) % 7]
-print(result_day)
+    for i in range(1, m):
+        total_days += days[i]
+
+    total_days += d
+    
+    return total_days    
+
+diff = num_of_days(m2, d2) - num_of_days(m1, d1)
+while diff < 0:
+    diff += 7
+
+day_of_week = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+print(day_of_week[diff % 7])
